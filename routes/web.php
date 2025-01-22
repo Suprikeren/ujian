@@ -29,6 +29,7 @@ Route::prefix('dashboard')->name('dashboard.')->group(function () {
         Route::get('/stocks', 'index')->name('index');
         // Route::get('/pdf', 'pdf')->name('pdf');
         Route::get('/export-pdf', 'exportPdf')->name('export-pdf');
+        Route::get('/export-excel', 'exportExcel')->name('export-excel');
         Route::post('/stocks/store', 'store')->name('store');
         Route::put('/stocks/update/{id}', 'update')->name('update');
         Route::delete('/stocks/delete/{id}', 'destroy')->name('destroy');

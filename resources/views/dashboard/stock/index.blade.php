@@ -8,7 +8,7 @@
 
     <div class="d-flex justify-content-between align-items-center mb-3">
         <a href="{{route('dashboard.stock.export-pdf')}}" class="mb-0">export PDF</a>
-        <h3 class="mb-0">export Excel</h3>
+        <a href="{{route('dashboard.stock.export-excel')}}" class="mb-0">export Excel</a>
         @include('dashboard.stock.create')
     </div>
     <table id="myTable" class="display">

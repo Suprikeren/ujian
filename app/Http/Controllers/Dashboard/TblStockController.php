@@ -5,8 +5,10 @@ namespace App\Http\Controllers\Dashboard;
 use App\Models\TblStock;
 use App\Models\TblBarang;
 use Illuminate\Http\Request;
+use App\Exports\StocskExports;
 use Barryvdh\DomPDF\Facade\Pdf;
 use App\Http\Controllers\Controller;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Validator;
 
 class TblStockController extends Controller
@@ -122,5 +124,11 @@ public function exportPdf(){
     $pdf = Pdf::loadView('dashboard.stock.pdf', ['stocks' => $stocks]);
     return $pdf->download('stocks.pdf');
 }
+
+    public function exportExcel()
+    {
+        return (new StocskExports)->download('stocks.xlsx');
+        // return Excel::download(new StocskExports, 'stocks.xlsx');
+    }
 
 }
