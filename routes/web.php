@@ -27,6 +27,8 @@ Route::prefix('dashboard')->name('dashboard.')->group(function () {
     });
     Route::controller(TblStockController::class)->name('stock.')->group(function () {
         Route::get('/stocks', 'index')->name('index');
+        // Route::get('/pdf', 'pdf')->name('pdf');
+        Route::get('/export-pdf', 'exportPdf')->name('export-pdf');
         Route::post('/stocks/store', 'store')->name('store');
         Route::put('/stocks/update/{id}', 'update')->name('update');
         Route::delete('/stocks/delete/{id}', 'destroy')->name('destroy');

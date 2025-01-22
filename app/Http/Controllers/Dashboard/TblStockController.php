@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Dashboard;
 use App\Models\TblStock;
 use App\Models\TblBarang;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade\Pdf;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 
@@ -108,6 +109,18 @@ class TblStockController extends Controller
     }
 
     return response()->json(['success' => false]);
+}
+
+// public function pdf(){
+//     $stocks = TblStock::all();
+//     return view('dashboard.stock.pdf', compact('stocks'));
+// }
+
+public function exportPdf(){
+    $stocks = TblStock::all();
+
+    $pdf = Pdf::loadView('dashboard.stock.pdf', ['stocks' => $stocks]);
+    return $pdf->download('stocks.pdf');
 }
 
 }

@@ -7,7 +7,8 @@
     @endpush
 
     <div class="d-flex justify-content-between align-items-center mb-3">
-        <h3 class="mb-0">Daftar Stok Barang</h3>
+        <a href="{{route('dashboard.stock.export-pdf')}}" class="mb-0">export PDF</a>
+        <h3 class="mb-0">export Excel</h3>
         @include('dashboard.stock.create')
     </div>
     <table id="myTable" class="display">
